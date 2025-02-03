@@ -1,0 +1,22 @@
+# Ignore all .out files
+*.out
+
+# Ignore all swap files
+*.swp
+
+# Ignore specific directories
+ch1/test
+ch*/test
+
+# Ignore chapter-specific files with patterns
+ch*/2-*
+ch*/3-*
+ch*/4-*
+ch*/5-*
+
+
+# Include all files with extensions
+!*.*
+ch5/5-2
+ch4/4-14
+ch5/5-2
