@@ -1,0 +1,69 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL") // From .env file
+}
+
+model User {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  username      String   @unique // For treecard.me/username
+  passwordHash  String
+  displayName   String?
+  bio           String?
+  profilePicUrl String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  links Link[] // Relation: One User has many Links
+}
+
+model Link {
+  id        String   @id @default(cuid())
+  title     String
+  url       String
+  order     Int // For sorting links on the page
+  isEnabled Boolean  @default(true) // Toggle visibility
+  type      LinkType @default(STANDARD)
+  price     Int?     // Price in cents (nullable)
+  imageUrl  String?  // URL to uploaded image
+  stripePriceId String? // Stripe price ID
+  stripeProductId String? // Stripe product ID
+
+
+  // --- Unlockt Specific (Add later if needed) ---
+  // unlocktPrice String?
+  // unlocktPaymentUrl String?
+
+  // --- Platform Specific (Add later if needed) ---
+  // platform PlatformType?
+  // platformHandle String? // e.g., Instagram username
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade) // Relation: Link belongs to one User
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId, order]) // Index for fetching user links ordered
+}
+
+enum LinkType {
+  STANDARD
+  UNLOCKT // Placeholder
+  PLATFORM // Placeholder
+}
+
+// Optional: Enum for specific platforms if implementing platform links
+// enum PlatformType {
+//   INSTAGRAM
+//   YOUTUBE
+//   TIKTOK
+//   // ... add others
+// }

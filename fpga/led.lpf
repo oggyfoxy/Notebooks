@@ -1,0 +1,9 @@
+LOCATE COMP "sys_clk"   SITE "E3";   # 27 MHz crystal
+LOCATE COMP "sys_rst_n" SITE "D2";   # reset button
+LOCATE COMP "led[0]"    SITE "P1";   # LED0
+LOCATE COMP "led[1]"    SITE "N1";   # LED1
+LOCATE COMP "led[2]"    SITE "M1";   # LED2
+LOCATE COMP "led[3]"    SITE "L1";   # LED3
+LOCATE COMP "led[4]"    SITE "K1";   # LED4
+LOCATE COMP "led[5]"    SITE "J1";   # LED5
+

@@ -1,0 +1,4 @@
+Command: cmake -G Ninja -DPYTHON_DEPS_CHECKED=1 -DPYTHON=/Users/oggy/.espressif/python_env/idf6.0_py3.10_env/bin/python -DESP_PLATFORM=1 -DCCACHE_ENABLE=0 /Users/oggy/fun/esp32/hello_world
+-- IDF_TARGET not set, using default target: esp32
+-- Found Git: /opt/homebrew/bin/git (found version "2.49.0")
+-- Minimal build - ON

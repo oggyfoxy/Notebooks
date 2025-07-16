@@ -1,0 +1,2 @@
+source /Users/oggy/fun/esp32/hello_world/build/bootloader/gdbinit/symbols
+source /Users/oggy/fun/esp32/hello_world/build/bootloader/gdbinit/connect
